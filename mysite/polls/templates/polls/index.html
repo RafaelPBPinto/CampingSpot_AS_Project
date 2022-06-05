@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,13 +10,13 @@
         <!-- font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- fonts -->
-        <link rel = "stylesheet" href = "font/fonts.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'font/fonts.css' %}">
         <!-- normalize css -->
-        <link rel = "stylesheet" href = "css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
         <!-- custom css -->
-        <link rel = "stylesheet" href = "css/utility.css">
-        <link rel = "stylesheet" href = "css/style.css">
-        <link rel = "stylesheet" href = "css/responsive.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/utility.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
     </head>
     <body>
         <!-- navbar  -->
@@ -81,10 +82,9 @@
                     <span class = "sm-title">Conhece parques por todo o país</span>
                     <h2 class = "lg-title">Mais populares</h2>
                 </div>
-
                 <div class = "featured-row">
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-reo-de-janeiro-brazil.jpg" alt = "featured place">
+                        <img src ="{% static 'images/featured-reo-de-janeiro-brazil.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-north-bondi-australia.jpg" alt = "featured place">
+                        <img src = "{% static 'images/featured-north-bondi-australia.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-berlin-germany.jpg" alt = "featured place">
+                        <img src = "{% static 'images/featured-berlin-germany.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-khwaeng-wat-arun-thailand.jpg" alt = "featured place">
+                        <img src = "{% static 'images/featured-khwaeng-wat-arun-thailand.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -136,7 +136,7 @@
                     </div>
 
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-rome-italy.jpg" alt = "featured place">
+                        <img src = "{% static 'images/featured-rome-italy.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -149,7 +149,7 @@
                     </div>
 
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-fuvahmulah-maldives.jpg" alt = "featured place">
+                        <img src = "{% static 'images/featured-fuvahmulah-maldives.jpg' %}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
@@ -217,7 +217,7 @@
                     <div class = "test-item">
                         <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda blanditiis, asperiores, velit iste eos officiis tempora magni quaerat quo consectetur expedita cum recusandae facere nam voluptate minus iusto eum. Delectus!</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-1.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/test-1.jpg' %}" alt = "testimonial">
                             <div>
                                 <h3>Kevin Wilson</h3>
                                 <p class = "text">Trip to Brazil</p>
@@ -228,7 +228,7 @@
                     <div class = "test-item">
                         <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed ut dolores tenetur harum deserunt. Maxime tenetur consectetur recusandae nobis fugit iusto natus quibusdam nulla!</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-2.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/test-2.jpg' %}" alt = "testimonial">
                             <div>
                                 <h3>Ben Davis</h3>
                                 <p class = "text">Trip to Maldives</p>
@@ -239,7 +239,7 @@
                     <div class = "test-item">
                         <p class = "text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem sapiente amet expedita quae autem deleniti quo magni numquam facilis soluta dicta, praesentium ipsum, quos optio sed quibusdam! Reprehenderit recusandae provident id nemo!</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-3.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/test-3.jpg' %}" alt = "testimonial">
                             <div>
                                 <h3>Jaura Jones</h3>
                                 <p class = "text">Trip to Thailand</p>
@@ -315,6 +315,6 @@
         <!-- end of footer -->
 
         <!-- js -->
-        <script src = "js/script.js"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     </body>
 </html>
