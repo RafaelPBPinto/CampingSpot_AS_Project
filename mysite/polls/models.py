@@ -1,5 +1,6 @@
 from django.db import models
 
+"""
 class Parque(models.Model):
     parque_name = models.CharField('name')
     parque_descricao = models.CharField('description')
@@ -15,4 +16,4 @@ class Reserva(models.Model):
     reserva_atividades = models.CharField('atividade')
     reserva_npessoas = models.IntegerField(default=1)
     reserva_data = models ## acabar
-    
+"""    
