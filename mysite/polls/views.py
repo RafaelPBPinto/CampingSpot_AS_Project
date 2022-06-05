@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
-def home(request):
-    return render(request, 'polls/exemplo_home.html')
+def index(request):
+    return render(request, 'polls/index.html')
 
 def about(request):
-    return HttpResponse('<h1>Hello About</h1>')
+    return render(request, 'polls/about.html')
