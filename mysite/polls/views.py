@@ -15,3 +15,4 @@ def gallery(request):
 
 def login(request):
     return render(request, 'polls/login.html')
+

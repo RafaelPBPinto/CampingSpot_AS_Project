@@ -61,7 +61,7 @@
                 <div class = "header-form">
                     <form method="POST">
                         {% csrf_token %}
-                        <fieldset class="form-group">{{form}}</fieldset>
+                        <fieldset class="form-group">{{form.as_p}}</fieldset>
                         </br>
                         <button class="btn" type="submit">Sign Up</button>
                     </form>
