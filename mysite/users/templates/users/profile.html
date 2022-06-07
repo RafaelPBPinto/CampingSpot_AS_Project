@@ -1,0 +1,16 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class="flex">
+        <div class="content-section">
+            <div class="media">
+                <img src="{{user.profile.image.url}}" style="width: 100px; height: 100px; border-radius: 100%; margin: 1rem;">
+                <div class="media-body">
+                    <h2 class="account-heading">{{ user.username }}</h2>
+                    <pclass="text-secondary">{{ user.email }}</p>
+                </div>
+            </div>
+            <!-- FORM HERE -->
+        </div>
+    </header>
+{% endblock content %}
