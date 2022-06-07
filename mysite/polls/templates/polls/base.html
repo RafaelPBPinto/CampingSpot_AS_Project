@@ -4,7 +4,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>CampingSpot</title>
+        {% if title %}
+            <title>CampingSpot - {{ title }}</title>
+        {% else %}
+            <title>CampingSpot</title>
+        {% endif %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- font awesome cdn -->
@@ -43,16 +47,27 @@
                         <li class = "nav-item">
                             <a href = "/about.html" class = "nav-link">Sobre nós</a>
                         </li>
-                        <li class = "nav-item">
-                            <a href = "/login.html" class = "nav-link">Login</a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li class = "nav-item">
+                                <a href = "/profile" class = "nav-link">Utilizador</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/logout" class = "nav-link">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class = "nav-item">
+                                <a href = "/login" class = "nav-link">Login</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/register" class = "nav-link">Criar Conta</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- end of navbar  -->
-
-    
+        {% block content %}{% endblock %}
         <!-- footer -->
         <footer class = "py-4">
             <div class = "container footer-row">
@@ -115,7 +130,6 @@
             </div>
         </footer>
         <!-- end of footer -->
-
         <!-- js -->
         <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     </body>
