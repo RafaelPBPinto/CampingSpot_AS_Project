@@ -18,119 +18,40 @@
         </div>
 
         <div class = "popular-row">
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/porto-covo.jpg' %}" alt = "">
-                <div>
-                    <span>Parque de Campismo de Porto Covo, Setúbal</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half"></i></li>
-                        <li>&nbsp;801 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
+            {%for parque in parques %}
+                <div class = "popular-item shadow">
+                    <img src = "/static/{{parque.image}}" alt = "">
+                    <div>
+                        <span>{{parque.nome}}, {{parque.location}}</span>
+                        <ul class = "rating flex">
+                            {%if parque.rating == 0 %}
+                            {%elif parque.rating == 1 %}
+                            <li><i class = "fas fa-star"></i></li>
+                            {%elif parque.rating == 2 %}
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            {%elif parque.rating == 3 %}
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            {%elif parque.rating == 4 %}
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            {%elif parque.rating == 5 %}
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            <li><i class = "fas fa-star"></i></li>
+                            {%endif%}
+                            <li>&nbsp;500 reviews</li>
+                        </ul>
+                        <p class = "text"></p>
+                    </div>
                 </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/orbitur-beja.jpeg' %}" alt = "">
-                <div>
-                    <span>Orbitur Sitava Milfontes, Beja</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li>&nbsp;203 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/berlengas.jpg' %}" alt = "">
-                <div>
-                    <span>Parque de Campismo da Berlenga, Leiria</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half"></i></li>
-                        <li>&nbsp;476 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/geres.jpeg' %}" alt = "">
-                <div>
-                    <span>Selina Gerês, Braga</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/normad-vilareal.jpg' %}" alt = "">
-                <div>
-                    <span>Nomad Planet, Vila Real</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half"></i></li>
-                        <li>&nbsp;371 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/glamping-madeira.jpg' %}" alt = "">
-                <div>
-                    <span>Soul Glamping, Madeira</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li>&nbsp;571 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/salema-faro.jpg' %}" alt = "">
-                <div>
-                    <span>Salema Eco Parque, Faro</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half"></i></li>
-                        <li>&nbsp;531 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
-            <div class = "popular-item shadow">
-                <img src = "{% static 'images/beijames.jpeg' %}" alt = "">
-                <div>
-                    <span>Parque de Campismo Rural Vale do Beijames, Castelo Branco</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li>&nbsp;345 reviews</li>
-                    </ul>
-                    <p class = "text"></p>
-                </div>
-            </div>
+            {%endfor%}
         </div>
     </section>
     <!-- end of popular places section -->

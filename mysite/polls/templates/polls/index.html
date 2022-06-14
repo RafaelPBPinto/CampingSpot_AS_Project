@@ -9,12 +9,11 @@
                 <p>Com o CampingSpot podes fazer reservas de alojamento ou, simplesmente, reservar um lugar nas tuas atividades preferidas em qualquer parque de Portugal</p>
             </div>
             <div class = "header-form">
-                <h2>Escolhe o parque:</h2>
-                <form class = "flex">
-                    <input type = "text" class = "form-control" placeholder="Nome do parque ou distrito">
-                    <input type="date" class = "form-control" placeholder="Data">
-                    <input type="number" class = "form-control" placeholder="Preço (€)">
-                    <input type="submit" class = "btn" value = "Procurar">
+                <h2>Pesquisar parque:</h2>
+                <form class = "flex" method=POST action = "{% url 'polls-search' %}">
+                    {% csrf_token %}
+                    <input type = "text" class = "form-control" placeholder="Nome do parque ou distrito" name="searched">
+                    <input type="submit" class = "btn" value = "Procurar" >
                 </form>
             </div>
         </div>
@@ -29,83 +28,22 @@
                 <h2 class = "lg-title">Mais populares</h2>
             </div>
             <div class = "featured-row">
-                <div class = "featured-item my-2 shadow">
-                    <img src ="{% static 'images/orbitur-beja.jpeg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Orbitur Sitava Milfontes, Beja
-                        </span>
-                        <div>
-                            <p class = "text"></p>
+                {%for parque in parques %}
+                    {%if parque.rating >= 4 %}
+                        <div class = "featured-item my-2 shadow">
+                            <img src ="/static/{{parque.image}}" alt = "featured place">
+                            <div class = "featured-item-content">
+                                <span>
+                                    <i class = "fas fa-map-marker-alt"></i>
+                                    {{parque.nome}}, {{parque.location}}
+                                </span>
+                                <div>
+                                    <p class = "text"></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class = "featured-item my-2 shadow">
-                    <img src = "{% static 'images/berlengas.jpg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Parque de Campismo da Berlenga, Leiria
-                        </span>
-                        <div>
-                            <p class = "text"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "featured-item my-2 shadow">
-                    <img src = "{% static 'images/geres.jpeg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Selina Gerês, Braga
-                        </span>
-                        <div>
-                            <p class = "text"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "featured-item my-2 shadow">
-                    <img src = "{% static 'images/glamping-madeira.jpg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Soul Glamping, Madeira
-                        </span>
-                        <div>
-                            <p class = "text"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "featured-item my-2 shadow">
-                    <img src = "{% static 'images/normad-vilareal.jpg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Nomad Planet, Vila Real
-                        </span>
-                        <div>
-                            <p class = "text"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "featured-item my-2 shadow">
-                    <img src = "{% static 'images/salema-faro.jpg' %}" alt = "featured place">
-                    <div class = "featured-item-content">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                            Salema Eco Camp, Faro
-                        </span> 
-                        <div>
-                            <p class = "text"></p>
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>

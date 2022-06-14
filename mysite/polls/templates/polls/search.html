@@ -1,0 +1,128 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class = "flex header-sm">
+        <div class = "container">
+            <div class = "header-title">
+                {% if searched %}
+                    <h1>Resultados de Pesquisa para:</h1>
+                    <h2>{{searched}}</h2>
+                {% else %}
+                    <h1>Todos os parques</h1>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <div class = "popular-row">
+        {% if searched %}
+            {% if parques|length > 0 %}
+                {% for parque in parques %}
+                    <div class = "popular-item shadow">
+                        <img src = "/static/{{parque.image}}" alt = "">
+                        <div>
+                            <span>{{parque.nome}}, {{parque.location}}</span>
+                            <ul class = "rating flex">
+                                {%if parque.rating == 0 %}
+                                {%elif parque.rating == 1 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 2 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 3 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 4 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 5 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%endif%}
+                                <li>&nbsp;500 reviews</li>
+                            </ul>
+                            <p class = "text"></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elif distrito|length > 0 %}
+                {% for parque in distrito %}
+                    <div class = "popular-item shadow">
+                        <img src = "/static/{{parque.image}}" alt = "">
+                        <div>
+                            <span>{{parque.nome}}, {{parque.location}}</span>
+                            <ul class = "rating flex">
+                                {%if parque.rating == 0 %}
+                                {%elif parque.rating == 1 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 2 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 3 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 4 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 5 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%endif%}
+                                <li>&nbsp;500 reviews</li>
+                            </ul>
+                            <p class = "text"></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %} 
+                    <center><h1>Sem resultados</h1></center>
+            {% endif %}
+        {% else %}
+            {%for parque in all %}
+            <div class = "popular-item shadow">
+                <img src = "/static/{{parque.image}}" alt = "">
+                <div>
+                    <span>{{parque.nome}}, {{parque.location}}</span>
+                    <ul class = "rating flex">
+                        {%if parque.rating == 0 %}
+                        {%elif parque.rating == 1 %}
+                        <li><i class = "fas fa-star"></i></li>
+                        {%elif parque.rating == 2 %}
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        {%elif parque.rating == 3 %}
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        {%elif parque.rating == 4 %}
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        {%elif parque.rating == 5 %}
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        <li><i class = "fas fa-star"></i></li>
+                        {%endif%}
+                        <li>&nbsp;500 reviews</li>
+                    </ul>
+                    <p class = "text"></p>
+                </div>
+            </div>
+            {%endfor%}
+        {% endif %}
+    </div>
+{% endblock content %}
