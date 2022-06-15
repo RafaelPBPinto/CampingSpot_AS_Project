@@ -678,7 +678,6 @@ header.header-sm{
 }
 .popular-item{
     position: relative;
-    cursor: pointer;
     overflow: hidden;
     -webkit-transition: var(--trans);
     -o-transition: var(--trans);

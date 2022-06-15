@@ -23,6 +23,8 @@
                     <img src = "/static/{{parque.image}}" alt = "">
                     <div>
                         <span>{{parque.nome}}, {{parque.location}}</span>
+                        <p></p>
+                        <span>{{parque.pricepn}}€ por pessoa</span>
                         <ul class = "rating flex">
                             {%if parque.rating == 0 %}
                             {%elif parque.rating == 1 %}
@@ -48,7 +50,8 @@
                             {%endif%}
                             <li>&nbsp;500 reviews</li>
                         </ul>
-                        <p class = "text"></p>
+                        </br>
+                        <span><a href = "/reservation.html" class = "btn">Reservar</a></span>
                     </div>
                 </div>
             {%endfor%}

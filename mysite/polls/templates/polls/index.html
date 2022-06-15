@@ -37,9 +37,12 @@
                                     <i class = "fas fa-map-marker-alt"></i>
                                     {{parque.nome}}, {{parque.location}}
                                 </span>
-                                <div>
-                                    <p class = "text"></p>
-                                </div>
+                                <span>{{parque.pricepn}}€ por pessoa</span>
+                                <form method=POST action = "{% url 'polls-reservation' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="form-control" name="reserva" placeholder="{{parque.nome}}">
+                                    <input class = "btn" type="submit" value="Reservar">
+                                </form>
                             </div>
                         </div>
                     {% endif %}
@@ -64,7 +67,6 @@
                     </span>
                     <h3>Glamping</h3>
                     <p class = "text">Disfrute do melhor que a Natureza tem para lhe oferecer com os novos parques Glamping. Nunca foi tão fácil acampar com glamour.</p>
-                    <a href = "#" class = "btn">Ver mais</a>
                 </div>
 
                 <div class = "services-item">
@@ -73,7 +75,6 @@
                     </span>
                     <h3>Guia Turístico</h3>
                     <p class = "text">Comece a explorar novos horizontes. Com a ajuda dos nossos guias turísticos poderá conhecer tudo o que a Natureza tem para oferecer.</p>
-                    <a href = "#" class = "btn">Ver mais</a>
                 </div>
 
                 <div class = "services-item">
@@ -82,7 +83,6 @@
                     </span>
                     <h3>Os Melhores Preços</h3>
                     <p class = "text">Disfrute de uma escapadinha de umas férias para descansar sem gastar muito dinheiro, com as nossas ofertas especiais.</p>
-                    <a href = "#" class = "btn">Ver mais</a>
                 </div>
             </div>
         </div>

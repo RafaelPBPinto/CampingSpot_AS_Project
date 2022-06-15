@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class = "flex">
+        <div class = "container">
+            <div class = "featured-item my-2 shadow">
+                <img src ="/static/{{parque.image}}" alt = "featured place">
+                <div class = "featured-item-content">
+                    <span>
+                        <i class = "fas fa-map-marker-alt"></i>
+                        {{parque.nome}}, {{parque.location}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock content %}
