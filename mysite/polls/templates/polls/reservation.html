@@ -11,7 +11,6 @@
                     <div class = "reserva-item" style="text-align: left;">
                         <img src = "/static/{{parque.image}}" alt = "">
                         </br>
-                        <div>
                             <span>{{parque.nome}}, {{parque.location}}</span>
                             <p></p>
                             <span>{{parque.pricepn}}€ por pessoa</span>
@@ -40,7 +39,6 @@
                                 {%endif%}
                                 <li>&nbsp;500 reviews</li>
                             </ul>
-                        </div>
                     </div>
                     <form method=POST action = "{% url 'polls-payment' %}">
                         <div class = "popular-row" style="padding-left: 100px;">
@@ -74,11 +72,13 @@
                             <input type="date" class = "form-control" placeholder="Date">
                         </div>
                         <div class="reserva-item" style="padding-left: 150px;">
-                            <form method=POST action = "{% url 'polls-reservation' %}">
-                                {% csrf_token %}
-                                <input type="hidden" class="form-control" name="reserva" id="reserva" value="{{parque.nome}}">
-                                <input class = "btn" type="submit" value="Reservar">
-                            </form>
+                            <h1>
+                                <form method=POST action = "{% url 'polls-payment' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="form-control" name="reserva" id="reserva" value="{{parque.nome}}">
+                                    <input class = "btn" type="submit" value="Reservar">
+                                </form>
+                            </h1>
                         </div>
                     </div>
                     </form>
