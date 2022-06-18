@@ -2,16 +2,68 @@
 {% load static %}
 {% block content %}
     <header class = "flex">
-        <div class = "container">
-            <div class = "featured-item my-2 shadow">
-                <img src ="/static/{{parque.image}}" alt = "featured place">
-                <div class = "featured-item-content">
-                    <span>
-                        <i class = "fas fa-map-marker-alt"></i>
-                        {{parque.nome}}, {{parque.location}}
-                    </span>
-                </div>
-            </div>
+        <div class = "header-title">
+            <h1>Efetuar Reserva</h1>
         </div>
+        <section id = "reserva" class = "py-4">
+            <div class = "popular-row" style="padding-left: 50px;">
+                {%for parque in parques %}
+                    <div class = "reserva-item" style="text-align: left;">
+                        <img src = "/static/{{parque.image}}" alt = "">
+                        </br>
+                        <div>
+                            <span>{{parque.nome}}, {{parque.location}}</span>
+                            <p></p>
+                            <span>{{parque.pricepn}}€ por pessoa</span>
+                            <ul class = "rating flex">
+                                {%if parque.rating == 0 %}
+                                {%elif parque.rating == 1 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 2 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 3 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 4 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 5 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%endif%}
+                                <li>&nbsp;500 reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <form method=POST action = "{% url 'polls-payment' %}">
+                        <div class = "popular-row" style="padding-left: 50px;">
+                        <div class="reserva-item">
+                            <h1>Selecione o número de pessoas</h1>
+                            
+                        </div>
+                        <div class="reserva-item">
+                            <h1>Selecione as atividades que pretende fazer:</h1>
+                            <h3>Se só pretende alojamento deixe em branco</h3>
+                            <input type="checkbox" id="atividade" name="atividade" value="{{ parque.activities }}">
+                            <label for="atividade"> {{ parque.activities }} </label><br>
+                        </div>
+                        <div class="reserva-item">
+                            <h1>Selecione a data de inicio</h1>
+                            <input type="date" class = "form-control" placeholder="Date">
+                            <h1>Selecione a data de fim</h1>
+                            <input type="date" class = "form-control" placeholder="Date">
+                        </div>
+                    </div>
+                    </form>
+                {%endfor%}
+            </div>
+        </section>
     </header>
 {% endblock content %}

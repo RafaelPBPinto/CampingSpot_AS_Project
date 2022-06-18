@@ -722,6 +722,38 @@ header.header-sm{
     opacity: 0.95;
 }
 
+/* reserva section */
+#reserva.py-4{
+    padding-bottom: 0;
+}
+.reserva-item{
+    position: relative;
+    -webkit-transition: var(--trans);
+    -o-transition: var(--trans);
+    transition: var(--trans);
+}
+
+.reserva-item div{
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    bottom: -100%;
+    width: 100%;
+    padding: 2rem;
+    -webkit-transition: var(--trans);
+    -o-transition: var(--trans);
+    transition: var(--trans);
+}
+.reserva-item .rating{
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 0.7rem 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    padding: 0;
+}
+
 /* ### BLOG PAGE ### */
 /* blog */
 #blog{

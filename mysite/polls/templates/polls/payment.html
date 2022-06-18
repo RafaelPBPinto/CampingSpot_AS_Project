@@ -1,4 +1,45 @@
 {% extends "polls/base.html" %}
 {% load static %}
 {% block content %}
+    <header class = "flex header-sm">
+        <div class = "container">
+            <div class = "header-title">
+                <h1>Métodos de pagamento</h1>
+            </div>
+        </div>
+        <div class = "facts-row">
+            <div class = "facts-item">
+                <!--<img src="/static/images/mb.jpg" style="width: 100px;height: 50px;padding-left: 70px;"></span>-->
+                <i class="fa fa-credit-card facts-icon"></i>
+                <div class = "facts-info">
+                    </br></br>
+                    <span><a href = "/confirmation.html" class = "btn">Multibanco/MB Way</a></span>
+                </div>
+            </div>
+
+            <div class = "facts-item">
+                <i class="fa-brands fa-cc-paypal facts-icon"></i>
+                <div class = "facts-info">
+                    </br></br>
+                    <span><a href = "/confirmation.html" class = "btn">PayPal</a></span>
+                </div>
+            </div>
+
+            <div class = "facts-item">
+                <span class="fa-brands fa-cc-visa facts-icon"></span>
+                <div class = "facts-info">
+                    </br></br>
+                    <span><a href = "/confirmation.html" class = "btn">Visa</a></span>
+                </div>
+            </div>
+
+            <div class = "facts-item">
+                <i class="fa-brands fa-cc-mastercard facts-icon"></i>
+                <div class = "facts-info">
+                    </br></br>
+                    <span><a href = "/confirmation.html" class = "btn">Mastercard</a></span>
+                </div>
+            </div>
+        </div>
+    </header>
 {% endblock content %}

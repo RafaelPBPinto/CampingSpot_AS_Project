@@ -50,8 +50,11 @@
                             {%endif%}
                             <li>&nbsp;500 reviews</li>
                         </ul>
-                        </br>
-                        <span><a href = "/reservation.html" class = "btn">Reservar</a></span>
+                        <form method=POST action = "{% url 'polls-reservation' %}">
+                            {% csrf_token %}
+                            <input type="hidden" class="form-control" name="reserva" id="reserva" value="{{parque.nome}}">
+                            <input class = "btn" type="submit" value="Reservar">
+                        </form>
                     </div>
                 </div>
             {%endfor%}

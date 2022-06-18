@@ -30,8 +30,8 @@ def search(request):
 def reservation(request):
     if request.method == "POST":
         reserva = request.POST.get('reserva', False)
-        parque = Parque.objects.filter(nome__contains=reserva)
-        return render(request, 'polls/reservation.html', {'reserva': reserva, 'parque': parque})
+        parques = Parque.objects.filter(nome__contains=reserva)
+        return render(request, 'polls/reservation.html', {'reserva': reserva, 'parques': parques})
     else:
         return render(request, 'polls/reservation.html')
 
