@@ -877,3 +877,54 @@ header.header-sm{
     display: block;
     margin-bottom: 1rem;
 }
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    color: #888;
+    margin-top: 25px;
+  }
+  
+  .custom-select select {
+    display: block;
+    width: 70px;
+    min-height: 35px;
+    background: #cbe7ff;
+    border-radius: 3px;
+    border: 2px solid black;
+    outline: none;
+    padding: 0 20px 0 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    
+  }
+  
+
+  
+  .custom-select .selector-options {
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    background: #fff;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 1;
+    width: 96%;
+    position: absolute;
+    left: 2%;
+    top: 35%;
+  }
+  
+  .custom-select .selector-options li {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .custom-select .selector-options li:hover {
+    background: #fff;
+  }

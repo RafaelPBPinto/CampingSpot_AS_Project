@@ -43,22 +43,42 @@
                         </div>
                     </div>
                     <form method=POST action = "{% url 'polls-payment' %}">
-                        <div class = "popular-row" style="padding-left: 50px;">
-                        <div class="reserva-item">
+                        <div class = "popular-row" style="padding-left: 100px;">
+                        <div class="reserva-item" style="padding-left: 100px; max-width: 1000px;">
                             <h1>Selecione o número de pessoas</h1>
-                            
+                            <label class="custom-select">
+                                <select name="sample" style="margin-top:10px;">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                </select>
+                              </label>
                         </div>
-                        <div class="reserva-item">
+                        <div class="reserva-item" style="padding-left: 150px;">
                             <h1>Selecione as atividades que pretende fazer:</h1>
                             <h3>Se só pretende alojamento deixe em branco</h3>
                             <input type="checkbox" id="atividade" name="atividade" value="{{ parque.activities }}">
                             <label for="atividade"> {{ parque.activities }} </label><br>
                         </div>
-                        <div class="reserva-item">
+                        <div class="reserva-item" style="padding-left: 150px;">
                             <h1>Selecione a data de inicio</h1>
                             <input type="date" class = "form-control" placeholder="Date">
                             <h1>Selecione a data de fim</h1>
                             <input type="date" class = "form-control" placeholder="Date">
+                        </div>
+                        <div class="reserva-item" style="padding-left: 150px;">
+                            <form method=POST action = "{% url 'polls-reservation' %}">
+                                {% csrf_token %}
+                                <input type="hidden" class="form-control" name="reserva" id="reserva" value="{{parque.nome}}">
+                                <input class = "btn" type="submit" value="Reservar">
+                            </form>
                         </div>
                     </div>
                     </form>
