@@ -2,6 +2,7 @@ from distutils.command.upload import upload
 from operator import mod
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import IntegerField
 
 class Parque(models.Model): 
     nome = models.CharField(max_length = 100)
@@ -22,6 +23,8 @@ class Reserva(models.Model):
     datei = models.DateField()
     datef = models.DateField()
     activity = models.CharField(max_length=10)
+    npessoas = models.IntegerField(default=1)
+    days = models.IntegerField(default=1)
     price = models.FloatField()
 
     def __str__(self):
