@@ -1,0 +1,88 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class="flex">
+        <section id = "reserva" class = "py-4">
+            <div class = "popular-row" style="padding-left: 50px;">
+                <!--
+                {%for parque in parques %}
+                    <div class = "reserva-item" style="text-align: left;width: 250px;">
+                        <img src = "/static/{{parque.image}}" alt = "">
+                        </br>
+                            <span>{{parque.nome}}, {{parque.location}}</span>
+                            <p></p>
+                            <span>{{parque.pricepn}}€ por pessoa</span>
+                            <ul class = "rating flex">
+                                {%if parque.rating == 0 %}
+                                {%elif parque.rating == 1 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 2 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 3 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 4 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%elif parque.rating == 5 %}
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                <li><i class = "fas fa-star"></i></li>
+                                {%endif%}
+                                <li>&nbsp;500 reviews</li>
+                            </ul>
+                    </div>
+                    <form method=POST action = "{% url 'polls-payment' %}">
+                        {% csrf_token %}
+                        <div class = "popular-row" style="padding-left: 100px;">
+                        <div class="reserva-item" style="padding-left: 100px; max-width: 1000px;width: 250px;">
+                            <h1>Selecione o número de pessoas</h1>
+                            <label class="custom-select">
+                                <select name="npessoas" style="margin-top:10px;">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                </select>
+                              </label>
+                        </div>
+                        <div class="reserva-item" style="padding-left: 150px; width: 250px;">
+                            <h1>Selecione as atividades que pretende fazer:</h1>
+                            <h3>Se só pretende alojamento deixe em branco</h3>
+                            <input type="checkbox" id="atividade" name="atividade" value="{{ parque.activities }}">
+                            <label for="atividade"> {{ parque.activities }} </label><br>
+                        </div>
+                        <div class="reserva-item" style="padding-left: 150px;width: 250px;">
+                            <h1>Selecione a data de inicio</h1>
+                            <input type="date" class = "form-control" name="datai" placeholder="Date">
+                            <h1>Selecione a data de fim</h1>
+                            <input type="date" class = "form-control" name="dataf" placeholder="Date">
+                        </div>
+                    </div>
+                    <div class="reserva-item" style="padding-left: 150px;">
+                        <h1>
+                            <input type="hidden" class="form-control" name="parque" id="parque" value="{{parque.id}}">
+                            <input type="hidden" class="form-control" name="pessoa" id="pessoa" value="{{user.id}}">
+                            <input type="hidden" class="form-control" name="preco" id="preco" value="{{parque.pricepn}}">
+                            <input class = "btn" type="submit" value="Reservar" style="text-align: center;">
+                        </h1>
+                    </div>
+                    </form>
+                {%endfor%}
+                -->
+            </div>
+        /</section>
+    </header>
+{% endblock content %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from polls.models import Parque,Reserva
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 
@@ -19,3 +20,12 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
+
+@login_required
+def historico(request):
+    if request == 'POST':
+        reservas = request.POST.get('reservas',False)
+        reserva = Reserva.objects.filter(client__contains=reservas)
+        return render(request, 'users/historico.html',{'reservas':reservas, 'reserva':reserva})
+    else:
+        return render(request, 'users/historico.html')
