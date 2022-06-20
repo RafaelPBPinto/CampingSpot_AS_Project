@@ -4,8 +4,11 @@
     <header class="flex">
         <section id = "reserva" class = "py-4">
             <div class = "popular-row" style="padding-left: 50px;">
+                {%for reserva in reservas %}
+                    
+                    <p>{{ reserva.parque_id }}</p>
                 <!--
-                {%for parque in parques %}
+                
                     <div class = "reserva-item" style="text-align: left;width: 250px;">
                         <img src = "/static/{{parque.image}}" alt = "">
                         </br>
@@ -79,9 +82,10 @@
                             <input class = "btn" type="submit" value="Reservar" style="text-align: center;">
                         </h1>
                     </div>
-                    </form>
-                {%endfor%}
+                </form>
                 -->
+                {%endfor%}
+                
             </div>
         /</section>
     </header>

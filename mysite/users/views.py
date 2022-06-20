@@ -24,8 +24,9 @@ def profile(request):
 @login_required
 def historico(request):
     if request == 'POST':
-        reservas = request.POST.get('reservas',False)
-        reserva = Reserva.objects.filter(client__contains=reservas)
-        return render(request, 'users/historico.html',{'reservas':reservas, 'reserva':reserva})
+        cliente = request.POST.get('id_user',False)
+        reservas = Reserva.objects.all().filter(client = cliente)
+        print(reservas)
+        return render(request, 'users/historico.html',{'cliente':cliente, 'reservas':reservas})
     else:
         return render(request, 'users/historico.html')
