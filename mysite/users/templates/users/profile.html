@@ -11,17 +11,11 @@
                 </div>
             </div>
             <div style="margin-top: -200px;">
-                <form method=POST action = "{% url 'historico' %}">    
+                <form action = "{% url 'historico' %}">    
                     {% csrf_token %}
                     <div class="reserva-item" style="padding-left: 500px; width: 250px;">
-                    <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{user.id}}">
                     <input class = "btn" type="submit" value="Historico Reservas" style="text-align: center;">
                     </div>
-                    <!--
-                    <div class="reserva-item" style="padding-left: 500px; width: 250px; margin-top: 100px;">
-                        <span><a href = "/sugestao.html" class = "btn">Sugestoes site</a></span>
-                    </div>
-                    -->
                 </form>
             </div>
         </div>

@@ -4,7 +4,9 @@
     <header class="flex">
         <div class = "popular-row" style="padding-left: 50px;">
             {% for reserva in reservas %}
+                <div class = "reserva-item" style="text-align: left;width: 250px;">
                     <p>{{reserva.price}}</p>
+                </div>
             {%endfor%}
         </div>
     </header>

@@ -4,6 +4,8 @@ from django.contrib import messages
 from polls.models import Reserva
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.sessions.middleware import SessionMiddleware
+from django.contrib.auth.middleware import AuthenticationMiddleware
 
 def register(request):
     if request.method == 'POST':
@@ -23,9 +25,7 @@ def profile(request):
 
 @login_required
 def historico(request):
-    if request == "POST":
-        cliente = request.POST.get('id_user',False)
-        reservas = Reserva.objects.filter(client_id__contains=cliente)
-        return render(request, 'users/historico.html',{'cliente':cliente, 'reservas':reservas})
-    else:
-        return render(request, 'users/historico.html')
+    cliente = request.user
+    reservas = Reserva.objects.filter(client_id=cliente.id)
+    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas})
+
