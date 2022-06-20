@@ -2,19 +2,10 @@
 {% load static %}
 {% block content %}
     <header class="flex">
-        <section id = "reserva" class = "py-4">
-            <div class = "popular-row" style="padding-left: 50px;">
-                {%for reserva in reservas %}
-                <div class="reserva-item" style="padding-left: 150px; width: 250px;">
-                    <h1>Selecione as atividades que pretende fazer:</h1>
-                    <h3>Se só pretende alojamento deixe em branco</h3>
-                    <input type="checkbox" id="atividade" name="atividade" value="{{ parque.activities }}">
-                    <label for="atividade"> {{ parque.activities }} </label><br>
-                </div>
-                    <p>{{ reserva.parque_id }}</p>
-                {%endfor%}
-                
-            </div>
-        /</section>
+        <div class = "popular-row" style="padding-left: 50px;">
+            {% for reserva in reservas %}
+                    <p>{{ reserva.datei }}</p>
+            {%endfor%}
+        </div>
     </header>
 {% endblock content %}
