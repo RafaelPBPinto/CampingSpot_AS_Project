@@ -6,7 +6,7 @@
          <h1>Historico Reservas</h1>
       </div>
       <div>
-      <table style="border-spacing: 25px; border: 1px solid;">
+      <table style="border-spacing: 50px; border: 1px solid;">
                <thead class="thead-dark">
                   <tr style="font-size: 150%;">
                      <th >Parque</th>
@@ -27,11 +27,7 @@
                      <td>{{ reserva.datei }} - {{ reserva.datef }}</td>
                      <td>{{ reserva.price|floatformat:2 }}€</td>
                      {% if time < reserva.datei %}
-                        <form method=POST action = "{% url 'historico' %}">
-                           {% csrf_token %}
-                           <input type="hidden" class="form-control" name="cancelar" id="cancelar" value="{{reserva.id}}">
-                           <td><input class="btn" class="form-control" type="submit" value="Cancelar Reserva" style="text-align: center;"></td>
-                        </form>
+                        <td><a class="btn" href="/delete/{{ reserva.id }}">Cancelar Reserva</a></td>
                      {% endif %}
                   </tr>
                   {%endfor%}

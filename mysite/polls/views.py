@@ -50,8 +50,10 @@ def payment(request):
         preco = float(preco) * float(npessoas) * float(delta.days)
         if atividade == None:
             Reserva.objects.create(datei=datai, datef=dataf, price=preco, client_id=pessoa, parque_id=parque, npessoas=npessoas, days=delta.days)
+            Reserva.objects.order_by('datei')
         else:
             Reserva.objects.create(datei=datai, datef=dataf,activity=atividade, price=preco, client_id=pessoa, parque_id=parque, days=delta.days)
+            Reserva.objects.order_by('datei')
         return render(request, 'polls/payment.html', {'preco' : preco})
     else:
         return render(request, 'polls/payment.html')

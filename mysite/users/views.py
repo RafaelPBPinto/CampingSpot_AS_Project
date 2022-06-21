@@ -1,3 +1,4 @@
+from audioop import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -7,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 
 def register(request):
     if request.method == 'POST':
@@ -26,13 +28,12 @@ def profile(request):
 
 @login_required
 def historico(request):
-    if request == 'POST':
-        cancelar = request.POST.get('cancelar', False)
-        entry =  Reserva.objects.get(id=cancelar)
-        entry.delete()
     cliente = request.user
     reservas = Reserva.objects.filter(client_id=cliente.id)
     now = timezone.now().date()
     return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas, 'time':now})
     
-
+def delete(request, id):
+    reserva = Reserva.objects.filter(id=id)
+    reserva.delete()
+    return HttpResponseRedirect('/historico')
