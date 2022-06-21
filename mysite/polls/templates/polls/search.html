@@ -22,7 +22,7 @@
                             <div>
                                 <span>{{parque.nome}}, {{parque.location}}</span>
                                 <p></p>
-                                <span>{{parque.pricepn}}€ por pessoa</span>
+                                <span>{{parque.pricepn|floatformat:2}}€ por noite</span>
                                 <ul class = "rating flex">
                                     {%if parque.rating == 0 %}
                                     {%elif parque.rating == 1 %}
@@ -58,12 +58,12 @@
                     {% endfor %}
                 {% elif distrito|length > 0 %}
                     {% for parque in distrito %}
-                        <div class = "popular-item shadow">
+                        <div class = "popular-item shadow" style="text-align: left">
                             <img src = "/static/{{parque.image}}" alt = "">
                             <div>
                                 <span>{{parque.nome}}, {{parque.location}}</span>
                                 <p></p>
-                                <span>{{parque.pricepn}}€ por pessoa</span>
+                                <span>{{parque.pricepn|floatformat:2}}€ por noite</span>
                                 <ul class = "rating flex">
                                     {%if parque.rating == 0 %}
                                     {%elif parque.rating == 1 %}
@@ -102,12 +102,12 @@
                 {% endif %}
             {% else %}
                 {%for parque in all %}
-                <div class = "popular-item shadow">
+                <div class = "popular-item shadow" style="text-align: left">
                     <img src = "/static/{{parque.image}}" alt = "">
                     <div>
                         <span>{{parque.nome}}, {{parque.location}}</span>
                         <p></p>
-                        <span>{{parque.pricepn}}€ por pessoa</span>
+                        <span>{{parque.pricepn|floatformat:2}}€ por noite</span>
                         <ul class = "rating flex">
                             {%if parque.rating == 0 %}
                             {%elif parque.rating == 1 %}

@@ -2,13 +2,14 @@
 {% load static %}
 {% block content %}
     <header class="flex">
-        <div style="margin-top: -200px;">
-
-            <h2>Historico Reservas</h2>
-            <table style="border-spacing: 25px; border-spacing: 150px;">
+      <div class = "header-title">
+         <h1>Historico Reservas</h1>
+      </div>
+      <div>
+      <table style="border-spacing: 25px; border: 1px solid;">
                <thead class="thead-dark">
                   <tr style="font-size: 150%;">
-                     <th>Parque</th>
+                     <th >Parque</th>
                      <th>Número de pessoas</th>
                      <th>Actividade</th>
                      <th>Número de Dias</th>
@@ -19,22 +20,23 @@
                <tbody>
                 {% for reserva in reservas %}
                   <tr>
-                     {% for parque in parques %}
-                        <td>{{parque.nome}}</td>
-                     {% endfor %}
+                     <td>{{ reserva.parque }}</td>
                      <td>{{ reserva.npessoas }}</td>
-                     {% if reserva.activity == None %}
-                        <td>Não foi selecionada ativididade</td>
-                    {% else %}
-                        <td>{{ reserva.activity }}</td>
-                    {% endif %}
+                     <td>{{ reserva.activity }}</td>
                      <td>{{ reserva.days }}</td>
                      <td>{{ reserva.datei }} - {{ reserva.datef }}</td>
-                     <td>{{ reserva.price }}</td>
+                     <td>{{ reserva.price|floatformat:2 }}€</td>
+                     {% if time < reserva.datei %}
+                        <form method=POST action = "{% url 'historico' %}">
+                           {% csrf_token %}
+                           <input type="hidden" class="form-control" name="cancelar" id="cancelar" value="{{reserva.id}}">
+                           <td><input class="btn" class="form-control" type="submit" value="Cancelar Reserva" style="text-align: center;"></td>
+                        </form>
+                     {% endif %}
                   </tr>
                   {%endfor%}
                </tbody>
             </table> 
-         </div>
+    </div>
     </header>
 {% endblock content %}

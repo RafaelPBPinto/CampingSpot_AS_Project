@@ -37,7 +37,7 @@
                                     <i class = "fas fa-map-marker-alt"></i>
                                     {{parque.nome}}, {{parque.location}}
                                 </span>
-                                <span>{{parque.pricepn}}€ por pessoa</span>
+                                <span>{{parque.pricepn|floatformat:2}}€ por noite</span>
                                 <form method=POST action = "{% url 'polls-reservation' %}">
                                     {% csrf_token %}
                                     <input type="hidden" class="form-control" name="reserva" id="reserva" value="{{parque.nome}}">

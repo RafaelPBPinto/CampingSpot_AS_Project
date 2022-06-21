@@ -6,6 +6,7 @@ from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.contrib.auth.middleware import AuthenticationMiddleware
+from django.utils import timezone
 
 def register(request):
     if request.method == 'POST':
@@ -25,11 +26,13 @@ def profile(request):
 
 @login_required
 def historico(request):
+    if request == 'POST':
+        cancelar = request.POST.get('cancelar', False)
+        entry =  Reserva.objects.get(id=cancelar)
+        entry.delete()
     cliente = request.user
     reservas = Reserva.objects.filter(client_id=cliente.id)
-
-    parque = request.
-    parques = Parque.objects.filter(parque_id=parque.id)
-
-    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas, 'parque':parque.id, 'parques':parques})
+    now = timezone.now().date()
+    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas, 'time':now})
+    
 

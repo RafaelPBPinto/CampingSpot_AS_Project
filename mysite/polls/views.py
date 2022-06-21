@@ -52,7 +52,7 @@ def payment(request):
             Reserva.objects.create(datei=datai, datef=dataf, price=preco, client_id=pessoa, parque_id=parque, npessoas=npessoas, days=delta.days)
         else:
             Reserva.objects.create(datei=datai, datef=dataf,activity=atividade, price=preco, client_id=pessoa, parque_id=parque, days=delta.days)
-        return render(request, 'polls/payment.html')
+        return render(request, 'polls/payment.html', {'preco' : preco})
     else:
         return render(request, 'polls/payment.html')
 
