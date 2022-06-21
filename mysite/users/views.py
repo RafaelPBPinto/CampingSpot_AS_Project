@@ -1,4 +1,5 @@
 from audioop import reverse
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -43,9 +44,8 @@ def avaliaçao(request):
     reservas = Reserva.objects.filter(client_id=cliente.id)
     now = timezone.now().date()
     if request.method == 'POST':
-        messages.success(request, f'Avaliaçao feita com sucesso')
-        return render(request, 'users/profile.html',{'cliente':cliente.id, 'reservas':reservas.order_by('-datei'), 'time':now})
-        
+        messages.success(request, f'Avaliaçao feita com sucesso!')
+        return redirect('profile')
     return render(request, 'users/avaliaçao.html',{'cliente':cliente.id, 'reservas':reservas.order_by('-datei'), 'time':now})
 
 def sugestao(request):

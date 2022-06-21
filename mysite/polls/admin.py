@@ -1,3 +1,4 @@
 from django.contrib import admin
+from polls.models import Parque, Reserva
 
-# Register your models here.
+admin.site.register(Parque)

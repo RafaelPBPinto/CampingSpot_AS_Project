@@ -1,13 +1,22 @@
 {% extends "polls/base.html" %}
 {% load static %}
 {% block content %}
-    <header class="flex">
+    <header class="flex header-sm">
         <div class = "header-title">
+            {% if messages %}
+                {% for message in messages %}
+                    <h1>{{ message }}</h1>
+                {% endfor %}
+            {% endif %}
             <h1>Conta Utilizador</h1>
          </div>
         <div class="content-section">
             <div class="media" style="padding-right: 625px;">
-                <img src="/static/images/default.jpg" style="width: 100px; height: 100px; border-radius: 100%; margin: 1rem;">
+                {% if user.profile.image %}
+                    <img src="{{user.profile.image.url}}" style="width: 100px; height: 100px; border-radius: 100%; margin: 1rem;">
+                {% else %}
+                    <img src="/static/images/default.jpg" style="width: 100px; height: 100px; border-radius: 100%; margin: 1rem;">
+                {% endif %}
                 <div class="media-body">
                     <h2 class="account-heading">{{ user.username }}</h2>
                     <pclass="text-secondary">{{ user.email }}</p>
