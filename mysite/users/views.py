@@ -31,7 +31,7 @@ def historico(request):
     cliente = request.user
     reservas = Reserva.objects.filter(client_id=cliente.id)
     now = timezone.now().date()
-    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas, 'time':now})
+    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas.order_by('-datei'), 'time':now})
     
 def delete(request, id):
     reserva = Reserva.objects.filter(id=id)
