@@ -1,0 +1,55 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class="flex">
+      <div class = "header-title">
+         <h1>Avaliar</h1>
+      </div>
+      <div>
+      <table style="border-spacing: 50px; border: 1px solid;">
+               <thead class="thead-dark">
+                  <tr style="font-size: 150%;">
+                     <th >Parque</th>
+                     <th>Número de pessoas</th>
+                     <th>Actividade</th>
+                     <th>Número de Dias</th>
+                     <th>Data</th>
+                     <th>Preço</th>
+                  </tr>
+               </thead>
+               <tbody>
+                {% for reserva in reservas %}
+                    {% if time > reserva.datei %}  
+                        <tr>
+                            <td>{{ reserva.parque }}</td>
+                                <td>{{ reserva.npessoas }}</td>
+                                <td>{{ reserva.activity }}</td>
+                                <td>{{ reserva.days }}</td>
+                                <td>{{ reserva.datei }} - {{ reserva.datef }}</td>
+                                <td>{{ reserva.price|floatformat:2 }}€</td>
+                                <td>Avaliação: 
+                                    <label class="custom-select">
+                                    <select name="avaliçao" style="margin-top:10px;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>
+                                </label>
+                                </td>
+                                <td>
+                                    <form method=POST action = "{% url 'avaliaçao' %}">
+                                        {% csrf_token %}
+                                        <input class = "btn" type="submit" value="Avaliar" style="text-align: center;">
+                                        </div>
+                                    </form>
+                                </td>
+                        </tr>
+                    {% endif %}
+                {%endfor%}
+               </tbody>
+            </table> 
+    </div>
+    </header>
+{% endblock content %}

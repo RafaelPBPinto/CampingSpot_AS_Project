@@ -2,6 +2,9 @@
 {% load static %}
 {% block content %}
     <header class="flex">
+        <div class = "header-title">
+            <h1>Conta Utilizador</h1>
+         </div>
         <div class="content-section">
             <div class="media" style="padding-right: 625px;">
                 <img src="/static/images/default.jpg" style="width: 100px; height: 100px; border-radius: 100%; margin: 1rem;">
@@ -11,10 +14,22 @@
                 </div>
             </div>
             <div style="margin-top: -200px;">
-                <form action = "{% url 'historico' %}">    
+                <form action = "{% url 'historico' %}">
                     {% csrf_token %}
                     <div class="reserva-item" style="padding-left: 500px; width: 250px;">
                     <input class = "btn" type="submit" value="Historico Reservas" style="text-align: center;">
+                    </div>
+                </form>
+                <form action = "{% url 'avaliaçao' %}">
+                    {% csrf_token %}
+                    <div class="reserva-item" style="padding-left: 500px; width: 250px; margin-top: 50px;">
+                    <input class = "btn" type="submit" value="Avaliar Parques" style="text-align: center;">
+                    </div>
+                </form>
+                <form action = "{% url 'sugestao' %}">
+                    {% csrf_token %}
+                    <div class="reserva-item" style="padding-left: 500px; width: 250px; margin-top: 50px;">
+                    <input class = "btn" type="submit" value="Sugestao para site" style="text-align: center;">
                     </div>
                 </form>
             </div>

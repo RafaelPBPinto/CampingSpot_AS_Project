@@ -37,3 +37,19 @@ def delete(request, id):
     reserva = Reserva.objects.filter(id=id)
     reserva.delete()
     return HttpResponseRedirect('/historico')
+
+def avaliaçao(request):
+    cliente = request.user
+    reservas = Reserva.objects.filter(client_id=cliente.id)
+    now = timezone.now().date()
+    if request.method == 'POST':
+        messages.success(request, f'Avaliaçao feita com sucesso')
+        return render(request, 'users/profile.html',{'cliente':cliente.id, 'reservas':reservas.order_by('-datei'), 'time':now})
+        
+    return render(request, 'users/avaliaçao.html',{'cliente':cliente.id, 'reservas':reservas.order_by('-datei'), 'time':now})
+
+def sugestao(request):
+    return render(request, 'users/sugestao.html')
+
+def confirmaçao(request):
+    return render(request, 'users/confirmaçao.html')

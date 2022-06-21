@@ -1,0 +1,22 @@
+{% extends "polls/base.html" %}
+{% load static %}
+{% block content %}
+    <header class="flex">
+    <div class = "header-title">
+        <h1>Sugestao para o site</h1>
+    </div>
+    <div>
+        <form action="/url" method="GET">
+            <p>Sugestão:</p>
+            <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+            <br>
+        </form>
+        <form action = "{% url 'confirmaçao' %}">
+            {% csrf_token %}
+            <div class="reserva-item" style="padding-left: 115px; width: 250px; margin-top: 50px;">
+            <input class = "btn" type="submit" value="Confirmar sugestão" style="text-align: center;">
+            </div>
+        </form>
+    </div>
+    </header>
+{% endblock content %}
