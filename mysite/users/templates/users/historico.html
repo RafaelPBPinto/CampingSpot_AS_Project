@@ -2,12 +2,39 @@
 {% load static %}
 {% block content %}
     <header class="flex">
-        <div class = "popular-row" style="padding-left: 50px;">
-            {% for reserva in reservas %}
-                <div class = "reserva-item" style="text-align: left;width: 250px;">
-                    <p>{{reserva.price}}</p>
-                </div>
-            {%endfor%}
-        </div>
+        <div style="margin-top: -200px;">
+
+            <h2>Historico Reservas</h2>
+            <table style="border-spacing: 25px; border-spacing: 150px;">
+               <thead class="thead-dark">
+                  <tr style="font-size: 150%;">
+                     <th>Parque</th>
+                     <th>Número de pessoas</th>
+                     <th>Actividade</th>
+                     <th>Número de Dias</th>
+                     <th>Data</th>
+                     <th>Preço</th>
+                  </tr>
+               </thead>
+               <tbody>
+                {% for reserva in reservas %}
+                  <tr>
+                     {% for parque in parques %}
+                        <td>{{parque.nome}}</td>
+                     {% endfor %}
+                     <td>{{ reserva.npessoas }}</td>
+                     {% if reserva.activity == None %}
+                        <td>Não foi selecionada ativididade</td>
+                    {% else %}
+                        <td>{{ reserva.activity }}</td>
+                    {% endif %}
+                     <td>{{ reserva.days }}</td>
+                     <td>{{ reserva.datei }} - {{ reserva.datef }}</td>
+                     <td>{{ reserva.price }}</td>
+                  </tr>
+                  {%endfor%}
+               </tbody>
+            </table> 
+         </div>
     </header>
 {% endblock content %}

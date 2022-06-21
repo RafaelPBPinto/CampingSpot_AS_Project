@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from polls.models import Reserva
+from polls.models import Reserva,Parque
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.middleware import SessionMiddleware
@@ -27,5 +27,9 @@ def profile(request):
 def historico(request):
     cliente = request.user
     reservas = Reserva.objects.filter(client_id=cliente.id)
-    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas})
+
+    parque = request.
+    parques = Parque.objects.filter(parque_id=parque.id)
+
+    return render(request, 'users/historico.html',{'cliente':cliente.id, 'reservas':reservas, 'parque':parque.id, 'parques':parques})
 
