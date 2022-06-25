@@ -1,2 +1,4 @@
-web: gunicorn CampingSpot_AS_Project.wsgi
+web: gunicorn mysite.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
 
