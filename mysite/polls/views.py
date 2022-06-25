@@ -22,8 +22,8 @@ def gallery(request):
 def search(request):
     if request.method == "POST":
         searched = request.POST.get('searched', False)
-        parques = Parque.objects.filter(nome__contains=searched)
-        distrito = Parque.objects.filter(location__contains=searched)
+        parques = Parque.objects.filter(nome__icontains=searched)
+        distrito = Parque.objects.filter(location__icontains=searched)
         return render(request, 'polls/search.html', {'searched':searched, 'parques': parques, 'distrito': distrito, 'all': Parque.objects.all()})
     else:
         return render(request, 'polls/search.html', {})
