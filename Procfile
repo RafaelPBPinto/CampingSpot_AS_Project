@@ -1,1 +1,2 @@
-web: gunicorn mysite.wsgi
+web: gunicorn CampingSpot_AS_Project.wsgi
+
