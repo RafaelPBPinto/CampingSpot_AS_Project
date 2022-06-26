@@ -6,9 +6,9 @@
             <h1>Efetuar Reserva</h1>
         </div>
         <section id = "reserva" class = "py-4">
-            <div class = "popular-row" style="padding-left: 50px; zoom:75%;text-align: center;">
+            <div class = "popular-row" style="padding-left: 15%;">
                 {%for parque in parques %}
-                    <div class = "reserva-item" style="text-align: left;width: 250px;">
+                    <div class = "reserva-item" style="text-align: left;">
                         <img src = "/static/{{parque.image}}" alt = "">
                         </br>
                             <span>{{parque.nome}}, {{parque.location}}</span>
@@ -40,10 +40,10 @@
                                 <li>&nbsp;500 reviews</li>
                             </ul>
                     </div>
-                    <form method=POST action = "{% url 'polls-payment' %}">
+                    <form method=POST action = "{% url 'polls-payment' %}" style="padding-left: 0%;">
                         {% csrf_token %}
-                        <div class = "popular-row" style="padding-left: 100px;">
-                        <div class="reserva-item" style="padding-left: 100px; max-width: 1000px;width: 250px;">
+                        <div class="popular-row">
+                        <div class="reserva-item" style="padding-left: 20%; width: 250px;">
                             <h1>Selecione o número de pessoas</h1>
                             <label class="custom-select">
                                 <select name="npessoas" style="margin-top:10px;" id="npessoas">
@@ -60,20 +60,20 @@
                                 </select>
                               </label>
                         </div>
-                        <div class="reserva-item" style="padding-left: 150px; width: 250px;">
+                        <div class="reserva-item" style="padding-left: 50%; width: 250px;">
                             <h1>Selecione as atividades que pretende fazer:</h1>
                             <h3>Se só pretende alojamento deixe em branco</h3>
                             <input type="checkbox" id="atividade" name="atividade" value="{{ parque.activities }}">
                             <label for="atividade"> {{ parque.activities }} </label><br>
                         </div>
-                        <div class="reserva-item" style="padding-left: 150px;width: 250px;">
+                        <div class="reserva-item" style="padding-left: 90%; width: 250px;">
                             <h1>Selecione a data de inicio</h1>
                             <input type="date" class = "form-control" name="datai" id="datai" placeholder="Date">
                             <h1>Selecione a data de fim</h1>
                             <input type="date" class = "form-control" name="dataf" id="dataf" placeholder="Date">
                         </div>
                     </div>
-                    <div class="reserva-item" style="padding-left: 150px;">
+                    <div class="reserva-item">
                         <h1>
                             <input type="hidden" class="form-control" name="parque" id="parque" value="{{parque.id}}">
                             <input type="hidden" class="form-control" name="pessoa" id="pessoa" value="{{user.id}}">
