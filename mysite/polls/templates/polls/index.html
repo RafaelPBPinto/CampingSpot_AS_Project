@@ -12,8 +12,8 @@
                 <h2>Pesquisar parque:</h2>
                 <form class = "flex" method=POST action = "{% url 'polls-search' %}">
                     {% csrf_token %}
-                    <input type = "text" class = "form-control" placeholder="Nome do parque ou distrito" name="searched">
-                    <input type="submit" class = "btn" value = "Procurar" >
+                    <input type = "text" class = "form-control" placeholder="Nome do parque ou distrito" name="searched" id="searched">
+                    <input type="submit" id="submit" class = "btn" value = "Procurar" >
                 </form>
             </div>
         </div>
