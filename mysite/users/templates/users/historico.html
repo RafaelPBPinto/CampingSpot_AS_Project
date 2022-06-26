@@ -27,7 +27,7 @@
                      <td>{{ reserva.datei }} - {{ reserva.datef }}</td>
                      <td>{{ reserva.price|floatformat:2 }}€</td>
                      {% if time < reserva.datei %}
-                        <td><a class="btn" href="/delete/{{ reserva.id }}">Cancelar Reserva</a></td>
+                        <td><a class="btn" href="/delete/{{ reserva.id }}">Cancelar</a></td>
                      {% endif %}
                   </tr>
                   {%endfor%}
